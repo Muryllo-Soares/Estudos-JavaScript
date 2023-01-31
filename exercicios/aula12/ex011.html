@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IDADE</title>
+    
+</head>
+<style>
+    body{
+        font: normal 20px arial
+    }
+    input {
+        font: normal 20px times
+    }
+    h1 {
+        font: normal 25px arial black
+    }
+    div#res {
+        font: normal 25px arial
+    }
+</style>
+<body>
+    <center><h1>APTO A VOTAR?</h1></center>
+    <strong>Digite sua idade:</strong><input type="number" name="idade" id="idade">
+    <input type="button" value="Verificar" onclick = "clicar()">
+    <div id="res">
+
+    </div>
+    
+    <script>
+        function clicar() {
+            var anos = document.querySelector('input#idade')
+            var idad = Number(anos.value)
+            var res = document.querySelector('div#res')
+            res.innerHTML = `<P>Você tem <strong>${idad}</strong> anos de idade.</P>`
+            if(idad < 16) {
+                res.innerHTML += '<strong>Não Vota!</strong>'
+            } else if(idad < 18 || idad > 65) {
+                res.innerHTML += '<strong>Voto opcional!</strong>'
+            } else {
+                res.innerHTML += '<strong>Voto Obrigatorio!</strong>'
+            }
+        }
+        
+    </script>
+    
+</body>
+</html>
